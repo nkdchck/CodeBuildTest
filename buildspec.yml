@@ -17,6 +17,7 @@ phases:
     commands:
       - aws cloudformation deploy --template-file $CFN_TEMPLATE_FILE_LOCATION --stack-name $STACK_NAME --no-fail-on-empty-changeset
       - mkdir artifacts
+      - ls -alh
       - touch artifacts/corestackoutput.json
       - echo 'BuildArtifact' > corestackoutput.json
 artifacts:
