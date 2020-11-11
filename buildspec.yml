@@ -19,4 +19,4 @@ phases:
       - printf 'BuildArtifact' > corestackoutput.json
 artifacts:
   files:
-    - artifacts/corestackoutput.json
+    - corestackoutput.json
