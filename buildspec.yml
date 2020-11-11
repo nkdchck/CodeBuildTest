@@ -16,11 +16,7 @@ phases:
   post_build:
     commands:
       # - aws cloudformation deploy --template-file $CFN_TEMPLATE_FILE_LOCATION --stack-name $STACK_NAME --no-fail-on-empty-changeset
-      - printf 'BuildArtifact' > ./artifacts/corestackoutput.json
+      - touch corestackoutput.json
 artifacts:
   files:
     - '**/*.json'
-
-  discard-paths: yes
-  base-directory: 'artifacts'
-  
