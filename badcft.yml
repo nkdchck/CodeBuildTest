@@ -1,33 +1,15 @@
 Resources:
-  Ec2Instance:
-    Type: 'AWS::EC2::Instance'
-    Properties:
-      SecurityGroups:
-        - !Ref InstanceSecurityGroup
-      KeyName: ec2-keypair
-      ImageId: ami-0ff8a91507f77f867
-      Tags:
-        - 
-          Key: "Environment"
-          Value: "TestFernando"
-  InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
-    Properties:
-      GroupDescription: Enable SSH access via port 22 test 
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
-      Tags:
-        - 
-          Key: "Environment"
-          Value: "TestFernando"
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: test-fernando-s3-bucket
+      BucketName: test-first-pipeline-on-aws
+      BucketEncryption: 
+        ServerSideEncryptionConfiguration: 
+        - ServerSideEncryptionByDefault:
+            SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
       Tags:
         - 
           Key: "Environment"
-          Value: "TestFernando"
+          Value: "test-first-pipeline-on-aws"
