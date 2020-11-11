@@ -1,6 +1,5 @@
-Build specifications: Insert build commands
-Build Commands:
 version: 0.2
+
 phases:
   install:
     runtime-versions:
@@ -14,12 +13,10 @@ phases:
       - wget https://raw.githubusercontent.com/OzNetNerd/Cloud-Conformity-Pipeline-Scanner/master/src/scanner.py
       - CC_API_KEY=`jq -r '.CC_API_KEY' <<< $CC_API_KEY`
       - python3 scanner.py
-            
   post_build:
     commands:
       - aws cloudformation deploy --template-file $CFN_TEMPLATE_FILE_LOCATION --stack-name $STACK_NAME --no-fail-on-empty-changeset
       - printf 'BuildArtifact' > corestackoutput.json
 artifacts:
-    # Indicate that the created imagedefinitions.json file created on the previous
-    # line is to be referenceable as an artifact of the build execution job.
-    files: corestackoutput.json
+  files:
+    - artifacts/corestackoutput.json
