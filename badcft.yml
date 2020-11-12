@@ -2,7 +2,7 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: test-first-pipeline-on-aws
+      BucketName: s3-nkdchck
       BucketEncryption: 
         ServerSideEncryptionConfiguration: 
         - ServerSideEncryptionByDefault:
@@ -12,4 +12,4 @@ Resources:
       Tags:
         - 
           Key: "Environment"
-          Value: "test-first-pipeline-on-aws"
+          Value: "s3-nkdchck"
